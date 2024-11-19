@@ -102,9 +102,8 @@
 - volumes: 호스트의 ../work 디렉토리를 컨테이너의 /usr/local/java로 마운트하여 파일을 공유합니다. rw는 읽기/쓰기 권한을 부여합니다.
 
 - environment: 환경 변수를 설정하여:
- - TZ=Asia/Seoul로 서울 시간대를 사용하고,
- - 
- - LC_ALL=en_US.UTF-8로 로케일을 영어(미국)으로 설정합니다.
+  - TZ=Asia/Seoul로 서울 시간대를 사용하고,
+  - LC_ALL=en_US.UTF-8로 로케일을 영어(미국)으로 설정합니다.
 
 -command: sleep infinity 명령을 사용하여 컨테이너가 무한히 실행되도록 설정합니다.
 
