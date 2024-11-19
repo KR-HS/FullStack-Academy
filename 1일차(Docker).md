@@ -107,8 +107,8 @@
 
 - **command**: sleep infinity* 명령을 사용하여 컨테이너가 무한히 실행되도록 설정합니다.
 
-
-[참조 문서](https://github.com/JosephBean/Docs/tree/main/docker)
+## 참고 자료
+(https://github.com/JosephBean/Docs/tree/main/docker)
 
 
 
