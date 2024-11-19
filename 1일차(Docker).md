@@ -40,14 +40,17 @@
 ## Docker 기본 명령어
 - Docker 버전 확인
 > docker --version
+> 
 > docker -v
 
 - Docker Hub에 있는 Repository의 이미지 내려받기
 > docker pull [이미지명:태그명]
+> 
 > docker pull ubuntu:latest  # 태그 = 버전
 
 - Docker Container 생성
 > docker run [옵션] [컨테이너명] [이미지]
+> 
 > docker run -it -d --name ubuntu ubuntu:latest
 > # 옵션
 >> # -it = 터미널을 통한 입력을 위한 옵션
