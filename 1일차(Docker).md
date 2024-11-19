@@ -81,20 +81,36 @@
  > docker images
 
 ## Docker Compose
-    version: "3"
-     services:
-       nodejs:
-         image: node:latest
-         volumes:
-           - shared-data:/usr/src/app
-       db:
-         image: mariadb:latest
-         volumes:
-           - shared-data:/usr/src/mysql
-         ports:
-           - “3306:3306”
-     volumes:
-     shared-data:
+services:
+  java:
+    # 사용하려는 Docker 이미지 이름과 태그를 지정. 
+    # 여기서는 OpenJDK 21 JDK 이미지 사용.
+    image: openjdk:21-jdk
+    
+    # 컨테이너의 이름을 "java"로 지정. 
+    # 이렇게 하면 컨테이너를 식별할 때 이 이름을 사용할 수 있음.
+    container_name: java
+    
+    # 컨테이너가 종료되면 자동으로 다시 시작되도록 설정. 
+    # 컨테이너가 멈추면 항상 재시작.
+    restart: always
+    
+    # 호스트 머신의 ../work 디렉토리를 컨테이너의 /usr/local/java 디렉토리와 연결.
+    # 'rw'는 읽기/쓰기가 가능하다는 뜻.
+    volumes:
+      - ../work:/usr/local/java:rw
+    
+    # 컨테이너 내의 환경 변수를 설정.
+    environment:
+      # 서울 시간대 설정 (컨테이너 내에서 시간대를 서울로 설정).
+      - TZ=Asia/Seoul
+      # 로케일을 영어(미국)로 설정.
+      - LC_ALL=en_US.UTF-8
+    
+    # 컨테이너가 실행될 때 "sleep infinity" 명령을 실행. 
+    # 이는 컨테이너가 무한히 실행되도록 하는 명령으로, 실제 애플리케이션이 없어도 컨테이너가 계속 실행 상태로 유지됨.
+    command: sleep infinity
+
 
 
 [참조 문서](https://github.com/JosephBean/Docs/tree/main/docker)
