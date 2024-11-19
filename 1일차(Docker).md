@@ -81,36 +81,31 @@
  > docker images
 
 ## Docker Compose
-services:
-  java:
-    # 사용하려는 Docker 이미지 이름과 태그를 지정. 
-    # 여기서는 OpenJDK 21 JDK 이미지 사용.
-    image: openjdk:21-jdk
-    
-    # 컨테이너의 이름을 "java"로 지정. 
-    # 이렇게 하면 컨테이너를 식별할 때 이 이름을 사용할 수 있음.
-    container_name: java
-    
-    # 컨테이너가 종료되면 자동으로 다시 시작되도록 설정. 
-    # 컨테이너가 멈추면 항상 재시작.
-    restart: always
-    
-    # 호스트 머신의 ../work 디렉토리를 컨테이너의 /usr/local/java 디렉토리와 연결.
-    # 'rw'는 읽기/쓰기가 가능하다는 뜻.
-    volumes:
-      - ../work:/usr/local/java:rw
-    
-    # 컨테이너 내의 환경 변수를 설정.
-    environment:
-      # 서울 시간대 설정 (컨테이너 내에서 시간대를 서울로 설정).
-      - TZ=Asia/Seoul
-      # 로케일을 영어(미국)로 설정.
-      - LC_ALL=en_US.UTF-8
-    
-    # 컨테이너가 실행될 때 "sleep infinity" 명령을 실행. 
-    # 이는 컨테이너가 무한히 실행되도록 하는 명령으로, 실제 애플리케이션이 없어도 컨테이너가 계속 실행 상태로 유지됨.
-    command: sleep infinity
+    services:
+      java:
+        image: openjdk:21-jdk
+        container_name: java
+        restart: always
+        volumes:
+          - ../work:/usr/local/java:rw
+        environment:
+          - TZ=Asia/Seoul
+          - LC_ALL:en_US.UTF-8
+        command: sleep infinity
 
+> image: 사용할 Docker 이미지를 openjdk:21-jdk로 지정합니다.
+
+> container_name: java라는 이름을 부여하여 컨테이너를 쉽게 식별할 수 있습니다.
+
+> restart: always로 설정하여 컨테이너가 종료되면 항상 재시작됩니다.
+
+> volumes: 호스트의 ../work 디렉토리를 컨테이너의 /usr/local/java로 마운트하여 파일을 공유합니다. rw는 읽기/쓰기 권한을 부여합니다.
+
+> environment: 환경 변수를 설정하여:
+ >> TZ=Asia/Seoul로 서울 시간대를 사용하고,
+ >>LC_ALL=en_US.UTF-8로 로케일을 영어(미국)으로 설정합니다.
+
+>command: sleep infinity 명령을 사용하여 컨테이너가 무한히 실행되도록 설정합니다.
 
 
 [참조 문서](https://github.com/JosephBean/Docs/tree/main/docker)
