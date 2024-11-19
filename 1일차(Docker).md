@@ -81,20 +81,20 @@
  > docker images
 
 ## Docker Compose
- version: "3"
-  services:
-    nodejs:
-      image: node:latest
-      volumes:
-        - shared-data:/usr/src/app
-    db:
-      image: mariadb:latest
-      volumes:
-        - shared-data:/usr/src/mysql
-      ports:
-        - “3306:3306”
-  volumes:
-    shared-data:
+    version: "3"
+     services:
+       nodejs:
+         image: node:latest
+         volumes:
+           - shared-data:/usr/src/app
+       db:
+         image: mariadb:latest
+         volumes:
+           - shared-data:/usr/src/mysql
+         ports:
+           - “3306:3306”
+     volumes:
+     shared-data:
 
 
 [참조 문서](https://github.com/JosephBean/Docs/tree/main/docker)
