@@ -39,45 +39,45 @@
 
 ## Docker 기본 명령어
 - Docker 버전 확인
-> docker --version
-> 
-> docker -v
+ > docker --version
+ > 
+ > docker -v
 
 - Docker Hub에 있는 Repository의 이미지 내려받기
-> docker pull [이미지명:태그명]
-> 
-> ex) docker pull ubuntu:latest  # 태그 = 버전
+ > docker pull [이미지명:태그명]
+ > 
+ > ex) docker pull ubuntu:latest  # 태그 = 버전
 
 - Docker Container 생성
-> docker run [옵션] [컨테이너명] [이미지]
-> 
-> ex) docker run -it -d --name ubuntu ubuntu:latest
-> 옵션
->> -it = 터미널(예시: cmd)을 통한 입력을 위한 옵션
->> 
->> -d = 백그라운드 실행을 위한 옵션
->> 
->> --name ubuntu = 컨테이너 이름 설정
+ > docker run [옵션] [컨테이너명] [이미지]
+ > 
+ > ex) docker run -it -d --name ubuntu ubuntu:latest
+ > 옵션
+  >> -it = 터미널(예시: cmd)을 통한 입력을 위한 옵션
+  >> 
+  >> -d = 백그라운드 실행을 위한 옵션
+  >> 
+  >> --name ubuntu = 컨테이너 이름 설정
 
 - Docker Container 목록 출력
  > docker ps -a
 
 - Docker Container에서 CLI명령어 사용
-> docker exec [옵션] [컨테이너 이름] [CLI 명령어]
->
-> ex) docker exec -it [컨테이너 이름] bash
+ > docker exec [옵션] [컨테이너 이름] [CLI 명령어]
+ >
+ > ex) docker exec -it [컨테이너 이름] bash
 
 - 실행 된 Docker Container 정지
-  > docker stop [컨테이너 이름]
+ > docker stop [컨테이너 이름]
 
 - 실행 된 Docker Container를 Image로 만들기
-> docker commit [컨테이너 이름] [사용자명/이미지명]
+ > docker commit [컨테이너 이름] [사용자명/이미지명]
 
 - Docker Hub Repository에 이미지를 올릴때 사용
-  > docker push [사용자명/이미지명]
+ > docker push [사용자명/이미지명]
 
 - 로컬에 저장된 Docker Image 목록
-  > docker images
+ > docker images
 
 
 
