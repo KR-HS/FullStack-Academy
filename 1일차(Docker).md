@@ -80,7 +80,25 @@
 - 로컬에 저장된 Docker Image 목록
  > docker images
 
-[참조 문서] (https://github.com/JosephBean/Docs/tree/main/docker)
+## Docker Compose
+ version: "3"
+ services:
+   nodejs:
+     image: node:latest
+     volumes:
+       - shared-data:/usr/src/app
+   db:
+     image: mariadb:latest
+     volumes:
+       - shared-data:/usr/src/mysql
+     ports:
+       - “3306:3306”
+ volumes:
+   shared-data:
+
+
+[참조 문서](https://github.com/JosephBean/Docs/tree/main/docker)
+
 
 
 
