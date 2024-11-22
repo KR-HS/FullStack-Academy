@@ -99,6 +99,11 @@ public class Main {
     
         // }
         
+
+        /*
+         * 백준 알고리즘
+         * https://www.acmicpc.net/problem/2581
+         */
         int count1=sc.nextInt();
         int minVal=10000;
         int sum=0;
