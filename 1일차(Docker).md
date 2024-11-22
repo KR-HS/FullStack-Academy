@@ -82,17 +82,26 @@
 > docker images
 
 ## Docker Compose
-    services:
-      java:
-        image: openjdk:21-jdk
-        container_name: java
-        restart: always
-        volumes:
-          - ../work:/usr/local/java:rw
-        environment:
-          - TZ=Asia/Seoul
-          - LC_ALL:en_US.UTF-8
-        command: sleep infinity
+```
+여러 개의 Docker 컨테이너를 정의하고 실행할 수 있는 도구
+여러 개의 서비스가 함께 동작해야 하는 애플리케이션을 설정할 때 유용하며, 
+YAML 파일을 사용하여 애플리케이션의 서비스, 네트워크, 볼륨 등을 정의할 수 있습니다.
+
+이를 통해 복잡한 멀티 컨테이너 애플리케이션을 쉽게 관리하고 배포할 수 있습니다.
+```
+```
+services:
+    java:
+      image: openjdk:21-jdk
+      container_name: java
+      restart: always
+      volumes:
+        - ../work:/usr/local/java:rw
+      environment:
+        - TZ=Asia/Seoul
+        - LC_ALL:en_US.UTF-8
+      command: sleep infinity
+```
 
 - **image**: 사용할 Docker 이미지를 openjdk:21-jdk로 지정합니다.
 
