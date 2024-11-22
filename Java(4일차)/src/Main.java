@@ -79,27 +79,59 @@ public class Main {
          * 백준 알고리즘
          * https://www.acmicpc.net/problem/1193
          */
-        if(count==1){
-            System.out.println("1/1");
-        }
-        else{
-            int num=0;
-            for(int i=1;i<10000;i++){
-                if((double)((i-1)*i)/2<count && count <=(i*(i+1)/2)){
-                    num=count-i*(i-1)/2;
-                    if(i%2==0){
-                        System.out.printf("%d/%d",num,i+1-num);
-                    }
-                    else{
-                        System.out.printf("%d/%d",i+1-num,num);
-                    }
-                    break;
-                }
-            }
+        // if(count==1){
+        //     System.out.println("1/1");
+        // }
+        // else{
+        //     int num=0;
+        //     for(int i=1;i<10000;i++){
+        //         if((double)((i-1)*i)/2<count && count <=(i*(i+1)/2)){
+        //             num=count-i*(i-1)/2;
+        //             if(i%2==0){
+        //                 System.out.printf("%d/%d",num,i+1-num);
+        //             }
+        //             else{
+        //                 System.out.printf("%d/%d",i+1-num,num);
+        //             }
+        //             break;
+        //         }
+        //     }
     
+        // }
+        
+        int count1=sc.nextInt();
+        int minVal=10000;
+        int sum=0;
+        boolean isSosu=true;
+
+
+        for(int i=count;i<count1+1;i++){
+                if(i==1){
+                    continue;
+                }
+                isSosu=true;
+                for(int j=2;j<=Math.sqrt(i);j++){
+                    if(i%j==0){
+                        isSosu=false;
+                        break;
+                    }
+
+                }
+                if(isSosu){
+                    sum+=i;
+                    minVal=minVal>i?i:minVal;
+                }
         }
 
-    }
+            if(sum==0){
+                System.out.println(-1);
+            }
+            else{
+                System.out.println(sum);
+                System.out.println(minVal);
+            }
 
+        
+    }
     
 }
